@@ -1,0 +1,60 @@
+Nathan Kowaleski
+Lab 1 redo report
+4/29/15
+
+
+This is a simple program that lets two people play connect 
+four. A game where the two players take turns dropping 
+differently marked discs into the available columns until 
+one player manages to get 4 in a row either vertically, 
+horizontally, or diagonally. To use the program the user 
+first inputs either 1 to indicate that there are 2 players 
+or 0 to indicate they want to play the computer. Then the 
+players take turns by typing the number of the column they 
+want to add their disc to or by entering -1 to quit.
+
+The C4Col class lets us contains an array of chars and 
+allows us to keep track of and control columns in the game 
+while the C4Board class contains a array of C4Col's and 
+keeps track of and controls the multiple columns that make 
+up the game board. together they function like a 2D array 
+which represents the board. In C4Col the isFull function 
+returns either 1 or 0 depending on if the column is full 
+or not. the function getDisc(int) returns the value of the 
+char in the position represented by the input int, it 
+prints a warning if the input isn't valid and returns a 
+space instead. the function getMaxDiscs returns the value 
+of the maximum number of discs in column. the function 
+addDisc adds the inputted char to the first open spot in 
+the column or prints out a warning if the column is full. 
+in the C4Board class the display function prints out the 
+board with " | "/s in between each element and numbers 
+along the top and sides. the otherMove function works as 
+the computer player and returns the number of the first 
+row that isn't full. the hasWon function checks for 4 in a 
+row horizontally, vertically, and diagonally and returns 1 
+if it finds one and 0 if it does not. the play function 
+first asks if there are 1 or 2 players and then goes threw 
+a while loop where it prints the board and then asks the 
+current player what row they'd like to add a disc to, it 
+then subtracts 1 from the input since the columns 1-7 are 
+stored in an array as 0-6, if -1 is inputted it ends, if 
+hasWon returns 0 it displays who the last player to make a 
+move was and then ends, otherwise it adds 1 to the turn 
+count. when it ends it displays the board and the number 
+of turns.
+
+Using a get function for maxDiscs allows us to see and use 
+private variables while still making sure no one can 
+change them. 
+
+Deconstructors are needed so that once your done with the 
+memory you allocated with new. If you didn't then you 
+couldn't reuse that same memory later creating a memory 
+leak.
+
+To improve this lab I added a working Makefile, and got 
+the code to compile correctly. I fixed the win function to 
+correctly notice diagonal connect fours. I also did my 
+best to indent and comment more so the code would be more 
+readable.
